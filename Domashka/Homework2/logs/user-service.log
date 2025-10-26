@@ -1,0 +1,121 @@
+2025-10-26 15:24:11.051 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2025-10-26 15:24:11.562 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-10-26 15:24:12.812[main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-10-26 15:24:13.187 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 3 пользователей
+2025-10-26 15:24:47.522 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2025-10-26 15:24:48.073 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-10-26 15:24:49.365 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-10-26 15:24:49.621[main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 3 пользователей
+2025-10-26 15:25:05.111 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Создан новый пользователь: id=6
+2025-10-26 15:25:17.962 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Создан новый пользователь: id=7
+2025-10-26 15:25:28.881 [main] WARN  org.LosenkovIvan.view.ConsoleUI - Неверный формат ID при поиске пользователя: For input string: "edgewewfwq"
+2025-10-26 15:26:13.621 [main] ERROR org.LosenkovIvan.view.ConsoleUI - Ошибка при поиске пользователя по ID
+org.hibernate.LazyInitializationException: Could not initialize proxy [org.LosenkovIvan.model.User#5] - no session
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:172)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:326)
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:42)
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:100)
+	at org.LosenkovIvan.model.User$HibernateProxy.getName(Unknown Source)
+	at org.LosenkovIvan.view.ConsoleUI.readUser(ConsoleUI.java:123)
+	at org.LosenkovIvan.view.command.ReadUserCommand.execute(ReadUserCommand.java:17)
+	at org.LosenkovIvan.view.ConsoleUI.start(ConsoleUI.java:49)
+	at org.LosenkovIvan.Main.main(Main.java:8)
+2025-10-26 15:28:25.129 [main] ERROR org.LosenkovIvan.view.ConsoleUI - Ошибка при поиске пользователя по ID
+org.hibernate.LazyInitializationException: Could not initialize proxy [org.LosenkovIvan.model.User#7] - no session
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:172)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:326)
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:42)
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:100)
+	at org.LosenkovIvan.model.User$HibernateProxy.getName(Unknown Source)
+	at org.LosenkovIvan.view.ConsoleUI.readUser(ConsoleUI.java:123)
+	at org.LosenkovIvan.view.command.ReadUserCommand.execute(ReadUserCommand.java:17)
+	at org.LosenkovIvan.view.ConsoleUI.start(ConsoleUI.java:49)
+	at org.LosenkovIvan.Main.main(Main.java:8)
+2025-10-26 15:30:21.521 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 5 пользователей
+2025-10-26 15:30:52.721 [main] ERROR org.LosenkovIvan.view.ConsoleUI - Ошибка при обновлении пользователя
+org.hibernate.LazyInitializationException: Could not initialize proxy [org.LosenkovIvan.model.User#7] - no session
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:172)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:326)
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:42)
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:100)
+	at org.LosenkovIvan.model.User$HibernateProxy.getName(Unknown Source)
+	at org.LosenkovIvan.view.ConsoleUI.updateUser(ConsoleUI.java:175)
+	at org.LosenkovIvan.view.command.UpdateUserCommand.execute(UpdateUserCommand.java:17)
+	at org.LosenkovIvan.view.ConsoleUI.start(ConsoleUI.java:49)
+	at org.LosenkovIvan.Main.main(Main.java:8)
+2025-10-26 15:31:42.241 [main] ERROR org.LosenkovIvan.view.ConsoleUI - Ошибка при удалении пользователя
+java.lang.RuntimeException: Ошибка при удалении пользователя
+	at org.LosenkovIvan.dao.UserDaoImpl.delete(UserDaoImpl.java:92)
+	at org.LosenkovIvan.service.UserService.deleteUser(UserService.java:35)
+	at org.LosenkovIvan.view.ConsoleUI.deleteUser(ConsoleUI.java:241)
+	at org.LosenkovIvan.view.command.DeleteUserCommand.execute(DeleteUserCommand.java:17)
+	at org.LosenkovIvan.view.ConsoleUI.start(ConsoleUI.java:49)
+	at org.LosenkovIvan.Main.main(Main.java:8)
+Caused by: jakarta.persistence.OptimisticLockException: Batch update returned unexpected row count from update 0 (expected row count 1 but was 0) [delete from users where id=?] for entity [org.LosenkovIvan.model.User with id '0']
+	at org.hibernate.internal.ExceptionConverterImpl.wrapStaleStateException(ExceptionConverterImpl.java:201)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:80)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:155)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:161)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1447)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:488)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2321)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2029)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:394)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:167)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commitNoRollbackOnly(JdbcResourceLocalTransactionCoordinatorImpl.java:249)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:243)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:90)
+	at ru.oleg520.dao.UserDaoImpl.delete(UserDaoImpl.java:81)
+	... 5 more
+Caused by: org.hibernate.StaleObjectStateException: Batch update returned unexpected row count from update 0 (expected row count 1 but was 0) [delete from users where id=?] for entity [org.LosenkovIvan.model.User with id '0']
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.staleObjectState(AbstractDeleteCoordinator.java:291)
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.lambda$doStaticDelete$4(AbstractDeleteCoordinator.java:282)
+	at org.hibernate.engine.jdbc.batch.internal.BatchImpl.checkRowCounts(BatchImpl.java:313)
+	at org.hibernate.engine.jdbc.batch.internal.BatchImpl.lambda$performExecution$1(BatchImpl.java:270)
+	at org.hibernate.engine.jdbc.mutation.internal.PreparedStatementGroupSingleTable.forEachStatement(PreparedStatementGroupSingleTable.java:63)
+	at org.hibernate.engine.jdbc.batch.internal.BatchImpl.performExecution(BatchImpl.java:253)
+	at org.hibernate.engine.jdbc.batch.internal.BatchImpl.execute(BatchImpl.java:232)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.executeBatch(JdbcCoordinatorImpl.java:191)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:676)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:513)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:378)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:59)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:140)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1443)
+	... 14 more
+Caused by: org.hibernate.StaleStateException: Batch update returned unexpected row count from update 0 (expected row count 1 but was 0) [delete from users where id=?]
+	at org.hibernate.jdbc.Expectations.checkBatched(Expectations.java:78)
+	at org.hibernate.jdbc.Expectation$RowCount.verifyOutcome(Expectation.java:173)
+	at org.hibernate.engine.jdbc.batch.internal.BatchImpl.checkRowCounts(BatchImpl.java:309)
+	... 25 more
+2025-10-26 15:32:44.527 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory закрыт
+2025-10-26 15:33:04.124 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2025-10-26 15:33:04.862 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-10-26 15:33:06.012 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-10-26 15:33:06.852 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 5 пользователей
+2025-10-26 15:34:33.421 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2025-10-26 15:34:34.251 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-10-26 15:34:36.521 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-10-26 15:34:36.992 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 5 пользователей
+2025-10-26 15:35:02.623 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Пользователь удален
+2025-10-26 15:35:09.011 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 4 пользователей
+2025-10-26 15:35:17.684 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Пользователь найден
+2025-10-26 15:36:02.099 [main] ERROR org.LosenkovIvan.view.ConsoleUI - Ошибка при поиске пользователя по ID
+org.hibernate.LazyInitializationException: Could not initialize proxy [org.LosenkovIvan.model.User#5] - no session
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:172)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:326)
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:42)
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:100)
+	at org.LosenkovIvan.model.User$HibernateProxy.getName(Unknown Source)
+	at org.LosenkovIvan.view.ConsoleUI.readUser(ConsoleUI.java:123)
+	at org.LosenkovIvan.view.command.ReadUserCommand.execute(ReadUserCommand.java:17)
+	at org.LosenkovIvan.view.ConsoleUI.start(ConsoleUI.java:49)
+	at org.LosenkovIvan.Main.main(Main.java:8)
+2025-10-26 15:38:11.125 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory закрыт
+2025-10-26 15:40:50.214 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2025-10-26 15:40:56.521 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-10-26 15:41:01.894 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-10-26 15:41:09.125 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Найден пользователь: id=5, name=Pavel
+2025-10-26 15:41:32.596 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Пользователь обновлен
+2025-10-26 15:42:12.215 [main] INFO  org.LosenkovIvan.view.ConsoleUI - Выведено 4 пользователей
+2025-10-26 15:42:42.164 [main] INFO  org.LosenkovIvan.util.HibernateUtil - Hibernate SessionFactory закрыт
