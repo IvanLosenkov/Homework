@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: notification-service
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8081
+
+kafka:
+  bootstrap-servers: localhost:9092
+  topics:
+    test-topic: topicForNotification
+  group-id: notification-group
+  auto-offset-reset: earliest
+
+logging:
+  level:
+    root: INFO
+    com.example.business: DEBUG
+    com.example.web: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %level - %msg%n"
+  file:
+    name: logs/application.log
+    max-size: 10MB
